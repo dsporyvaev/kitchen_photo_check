@@ -1,6 +1,7 @@
-from aiogram import Dispatcher, Bot, types
+from aiogram import Dispatcher, Bot
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-bot = Bot(token='8056380284:AAF2g23VNztgkqXe5J5LXVqpSieTZYU6fgU', default=DefaultBotProperties(parse_mode=ParseMode.HTML))
+from data.config import BOT_TOKEN
+bot = Bot(token=BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
 dp = Dispatcher()

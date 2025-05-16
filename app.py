@@ -8,10 +8,16 @@ from handlers import user_router
 def register_routers(disp:Dispatcher):
     disp.include_router(user_router)
 
+async def on_startup() -> None:
+    print("Bot started [+]")
+
+async def on_shutdown() -> None:
+    print("Bot shutdown")
 
 async def main() -> None:
     dp = Dispatcher()
-
+    dp.startup.register(on_startup)
+    dp.shutdown.register(on_shutdown)
     register_routers(dp)
     await dp.start_polling(bot)
 
