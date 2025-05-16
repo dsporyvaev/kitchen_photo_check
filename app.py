@@ -1,10 +1,9 @@
 import sys
-
-from loader import dp, bot
 import asyncio
 import logging
-async def on_startup():
-     print("Bot started successfully")
+from loader import dp,bot
+
+
 
 
 async def main() -> None:
