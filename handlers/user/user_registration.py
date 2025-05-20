@@ -16,7 +16,6 @@ class Registration(StatesGroup):
 
 @registration_router.message(Command('register'))
 async def reg_handler(msg: Message, state:FSMContext) -> None:
-    await msg.answer("working")
     user_id = msg.from_user.id
     if get_userx(user_id=user_id)['user_login'] == '':
         await state.set_state(Registration.first_name)  # Встановлення стану очікування імені

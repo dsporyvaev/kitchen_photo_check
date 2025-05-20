@@ -3,18 +3,21 @@ import asyncio
 import logging
 from aiogram import Dispatcher
 from bot_instance import bot
-from handlers.handlers import legit_router
-from handlers.user_registration import registration_router
+from handlers.admin.admin_handlers import admin_router
+from handlers.user.handlers import legit_router
+from handlers.user.user_registration import registration_router
 from data.config import BOT_VERSION
 from utils.set_bot_commands import set_default_commands
 from middlewares.user_registered import RegisteredUserMiddleware
 from services.api_sqlite import create_dbx
-
+from handlers.user.mid_shift import mid_shift_router
 
 
 def register_routers(disp:Dispatcher):
     disp.include_router(legit_router)
     disp.include_router(registration_router)
+    disp.include_router(admin_router)
+    disp.include_router(mid_shift_router)
 
 async def on_startup(bot) -> None:
     await set_default_commands(bot)

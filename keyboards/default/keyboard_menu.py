@@ -1,6 +1,21 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 
+kb_menu = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="but1"),
+            KeyboardButton(text="but2"),
 
+        ],
+        [
+            KeyboardButton(text="inline menu"),
+            KeyboardButton(text="but4"),
+        ]
+    ],
+
+    resize_keyboard=True
+
+)
 
 
 

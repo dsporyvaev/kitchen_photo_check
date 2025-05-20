@@ -1,11 +1,14 @@
 
-from aiogram import html, Router
+from aiogram import html, Router, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message
 from services.api_sqlite import get_userx
 from data.config import admins
 from keyboards.default.keyboard_menu import kb_start
 from keyboards.default.admin import admin_kb_start
+from filters.isregistered import IsRegistered
+from aiogram.fsm.context import FSMContext
+from handlers.user.mid_shift import MidShift
 legit_router = Router()
 
 
@@ -38,5 +41,12 @@ async def help_handler(msg: Message) -> None:
 
 
 
+@legit_router.message(F.text == 'Menu', MidShift.mid_shift)
+# @legit_router.message(F.text == 'Menu', NightShift.night_shift)
+# @legit_router.message(F.text == 'Menu', MorningShift.morning_shift)
+@legit_router.message(IsRegistered(), F.text == 'Menu')
+async def menu(message: Message, state: FSMContext):
+    await state.clear()
+    await message.answer("Choose your shift", reply_markup=kb_start)
 
 
