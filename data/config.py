@@ -11,8 +11,8 @@ BOT_TIMEZONE = "Europe/Kyiv" #bot timezone
 
 PATH_DATABASE = "data/database.db"  # Path to database
 PATH_LOGS = "data/logs.log"  # Path to logs
-BOT_VERSION = "1.0"  # Bot version
+BOT_VERSION = "2.0"  # Bot version
 
 admins = [
-    181167752,
+    181167752
 ]
