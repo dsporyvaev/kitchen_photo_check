@@ -10,15 +10,17 @@ admin_router = Router()
 @admin_router.message(IsAdmin(), F.text == "Look for photo reports report")
 async def choose_other_day(msg: Message):
     admin_kb_other = InlineKeyboardBuilder()
+    if os.listdir('data/photos'):
+        print("not empty")
+        with os.scandir('data/photos') as files:
+            for file in files:
+                inline_btn = InlineKeyboardButton(text=file.name, callback_data=f"datefile:{file.name}")
+                admin_kb_other.add(inline_btn)
+                print(file.name)
 
-    with os.scandir('data/photos') as files:
-        for file in files:
-            inline_btn = InlineKeyboardButton(text=file.name, callback_data=f"datefile:{file.name}")
-            admin_kb_other.add(inline_btn)
-            print(file.name)
-
-    await msg.answer(text="Choose date to check:\n", reply_markup=admin_kb_other.as_markup())
-
+        await msg.answer(text="Choose date to check:\n", reply_markup=admin_kb_other.as_markup())
+    else:
+        await msg.answer(text="Right now there is nothing to show you!")
 
 @admin_router.callback_query(lambda c: c.data.startswith('datefile:'))
 async def process_date_callback(callback_query: CallbackQuery):
