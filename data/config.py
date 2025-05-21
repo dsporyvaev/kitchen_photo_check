@@ -14,5 +14,5 @@ PATH_LOGS = "data/logs.log"  # Path to logs
 BOT_VERSION = "2.0"  # Bot version
 
 admins = [
-
+    181167752
 ]

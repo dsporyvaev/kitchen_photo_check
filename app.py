@@ -11,6 +11,8 @@ from utils.set_bot_commands import set_default_commands
 from middlewares.user_registered import RegisteredUserMiddleware
 from services.api_sqlite import create_dbx
 from handlers.user.mid_shift import mid_shift_router
+from handlers.user.morning_shift import morning_shift_router
+from handlers.user.night_shift import night_shift_router
 
 
 def register_routers(disp:Dispatcher):
@@ -18,8 +20,10 @@ def register_routers(disp:Dispatcher):
     disp.include_router(registration_router)
     disp.include_router(admin_router)
     disp.include_router(mid_shift_router)
+    disp.include_router(morning_shift_router)
+    disp.include_router(night_shift_router)
 
-async def on_startup(bot) -> None:
+async def on_startup() -> None:
     await set_default_commands(bot)
     print("Bot started [+]")
     print(f"Version: {BOT_VERSION}")
