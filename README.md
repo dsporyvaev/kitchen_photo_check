@@ -1,0 +1,3 @@
+# Shift_pictures_tracker
+This is a small telegram bot on python, that receives photo from users at the end of shift and admin can look at this photo by dates and users.
+I made it for a friend of mine who works as manager. He complained that at the end of shift, each his employee must send him a bunch of photo in chat at the end of each shift, and in result chat looked like a trash bin. So he asked me to create a bot that each employee can send photo to at the end of the shift, and this photo will be sorted by date and user, then my friend could press one button and look for a specific photo at choosed date and choosed user. Bot was created in python using aiogram 3.20 API.
