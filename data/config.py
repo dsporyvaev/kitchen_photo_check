@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-BOT_TOKEN = '8056380284:AAF2g23VNztgkqXe5J5LXVqpSieTZYU6fgU'
+BOT_TOKEN = ''
 BOT_TIMEZONE = "Europe/Kyiv" #bot timezone
 
 PATH_DATABASE = "data/database.db"  # Path to database
